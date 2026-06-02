@@ -846,6 +846,7 @@ bool isModuleUsingSport(uint8_t moduleBay, uint8_t moduleType)
     case MODULE_TYPE_R9M_LITE_PRO_PXX2:
     case MODULE_TYPE_FLYSKY_AFHDS2A:
     case MODULE_TYPE_FLYSKY_AFHDS3:
+    case MODULE_TYPE_MAVLINK:
       return false;
 
     case MODULE_TYPE_XJT_PXX1:
@@ -1007,6 +1008,11 @@ bool isExternalModuleAvailable(int moduleType)
 
 #if !defined(GHOST)
   if (moduleType == MODULE_TYPE_GHOST)
+    return false;
+#endif
+
+#if !defined(MAVLINK)
+  if (moduleType == MODULE_TYPE_MAVLINK)
     return false;
 #endif
 
