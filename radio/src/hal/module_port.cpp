@@ -157,7 +157,8 @@ static const etx_module_port_t* _find_port(uint8_t module, uint8_t type,
       type == ETX_MOD_TYPE_SERIAL &&
       polarity == ETX_Pol_Normal &&
       (port == ETX_MOD_PORT_UART || port == ETX_MOD_PORT_SPORT) &&
-      serialGetMode(SP_VCP) == UART_MODE_EXT_MODULE) {
+      serialGetMode(SP_VCP) == UART_MODE_EXT_MODULE &&
+      usbPluggedInVCPMode()) {
     return &_usb_module_port;
   }
 #endif
